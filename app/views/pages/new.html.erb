@@ -1,0 +1,38 @@
+<!-- CONTACT
+                        ================================================== -->
+                        <section id="contact">
+                        <div class="separator"></div><br/>
+                        <div class="row-fluid">
+                                <div class="span12 addspace">
+                                        <h1>GET IN TOUCH</h1>
+                                </div>
+                        </div>
+                        <div class="row-fluid" style="min-height:520px;">
+                                <div class="span7">
+                                        <div class="done">
+                                                <div class="alert alert-success">
+                                                        <button type="button" class="close" data-dismiss="alert">x</button>
+							<p class="flash-notice"><%= flash[:notice] %></p>
+                                                        <strong>Message sent successfully!</strong><br/>
+                                                </div>
+                                        </div>
+				<fieldset>
+                          <%= simple_form_for @message, :html => {:class => "form-horizontal"}, :url => home_path do |form| %>
+                          <%= form.input :name, :label => 'First Name: ', :placeholder => 'Your first name.', :input_html => {:class => "span6"}  %>
+                          <%= form.input :email, :label => 'Email address: ', :placeholder => 'your email address.', :input_html => {:class => "span6"} %>
+                          <%= form.input :body , :label => 'Enquiry: ', :as => :text, :placeholder => 'What you would like to contact us about.', :input_html => {:cols => 50, :rows =>5, :class => 'input-xlarge-focused span6 '} %>
+                          </br>
+                          <%= form.button :submit, :label => 'Send Enquiry',  :class =>  "btn btn-primary pull-right"  %>
+							<p class="flash-notice"><%= flash[:notice] %></p>
+                          <% end %>
+                        </fieldset>
+
+                                        </div>
+                                        <!-- Delete this line--><div class="scan"><img src="img/temp/scan.png" alt=""> <img src="img/temp/code.png" alt=""></div><!-- Delete this line-->
+                                </div>
+                                <div class="span5">
+<iframe width="410" height="377" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=pathway+guesthouse&amp;sll=54.488725,-0.616897&amp;sspn=0.004101,0.009538&amp;ie=UTF8&amp;t=h&amp;cid=2122958004452562429&amp;ll=54.491355,-0.616393&amp;spn=0.011217,0.021458&amp;z=15&amp;output=embed"></iframe>
+                                </div>
+                        </div>
+                </section>
+

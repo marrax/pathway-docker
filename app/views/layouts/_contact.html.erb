@@ -1,0 +1,104 @@
+<!-- CONTACT
+                        ================================================== -->
+                        <section id="contact">
+                        <div class="separator"></div><br/>
+                        <div class="row-fluid">
+			   <div class="span7">
+					<span class="servicetitle">Online booking</span>
+		
+					<!-- eviivo Availability Checker -->
+                                        <script type="text/javascript" src="http://securebooking.eviivo.com/PathwaysYO213ES.availabilitychecker.1.0.min.js"></script>
+                                        <script type="text/javascript">
+                                        eviivo.availabilitychecker.create('#availabilitychecker', {
+                                           industryTypes: [1],
+                                           allowCrossDomainTracking: true,
+                                           template: 'vertical'
+                                        });
+                                        </script>
+
+                                        <noscript><span class="eviivo_submit_noscript"><a href="http://securebooking.eviivo.com/mywebsite/PathwaysYO213ES.home" title="Book Online Now!">Check Availability</a></span><link rel="stylesheet" type="text/css" href="http://securebooking.eviivo.com/javascript/integration/eviivo.availabilitychecker.1.0.css" /></noscript>
+
+                                       <style type="text/css">
+                                       .eviivo_availabilitychecker {
+                                          width:320px !important;
+                                          height:auto !important;
+                                          color:#333333 !important;
+                                          background:#EEEEEE !important;
+                                          border: 1px solid #DDDDDD !important;
+                                          font-size:12px !important;
+                                          font-family:Arial !important;
+                                       }
+
+                                       .eviivo_title span {
+                                          color:#000000 !important;
+                                          font-size:12px !important;
+                                          font-family:Arial !important;
+                                       }
+
+                                       .eviivo_submit a {
+                                          color:#FFFFFF !important;
+                                          background:#F28226 !important;
+                                          border: 1px solid #CCCCCC !important;
+                                          font-size:12px !important;
+                                          font-family:Arial !important;
+                                       }
+                                       </style>
+                                       <div id="availabilitychecker"></div>
+	
+			   </div>
+			   <div class="span5">
+					<span class="servicetitle grey">Get in touch</span>
+                                        <div class="tdiv t5">
+                                                <p>
+                                                 <h5>Please call us on 01947 601779</h5>
+                                                </p>
+                                                <p>
+                                                 <h5>Or try Phil on his mobile 07769226746</h5>
+                                                </p>
+                                        </div>
+
+			</div>
+			</div>
+                        <br/>
+                        <br/>
+                        <div class="separator"></div><br/>
+
+
+                       <% flash.each do |name, message| %>
+                          <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+                              <a class="close" data-dismiss="alert">x</a>
+                              <%= message  %>
+                          </div>
+                        <% end %>
+
+                        <div class="row-fluid" style="min-height:520px;">
+                                <div class="span7">
+					<span class="servicetitle grey">Send us a message</span>
+                                         <div class="done">
+                                                <div class="alert alert-success">
+                                                        <button type="button" class="close" data-dismiss="alert">x</button>
+                                                        <strong>Message sent successfully!</strong><br/>
+                                                </div>
+                                        </div>
+
+                         <fieldset>
+                          <%= simple_form_for Message.new,  :url => { :action => "create" }, :html => {:class => "nifty_form"}  do |form| %>
+                          <%= form.input :name, :label => 'First Name: ', :placeholder => 'Your first name.', :input_html => {:class => "span7"}  %>
+                          <%= form.input :email, :label => 'Email address: ', :placeholder => 'your email address.', :input_html => {:class => "span7"} %>
+                          <%= form.input :body , :label => 'Enquiry: ', :as => :text, :placeholder => 'What you would like to contact us about.', :input_html => {:cols => 50, :rows =>5, :class => 'input-xlarge-focused span7 '} %>
+                          </br>
+                          <%= form.button :submit, :label => 'Send Enquiry',  :class =>  "btn btn-primary pull-right"  %>
+                          <% end %>
+			<div id="page">
+                        </fieldset>
+
+                                </div>
+
+                                <div class="span5">
+					<span class="servicetitle">Directions</span>
+<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?ie=UTF8&amp;q=live+Place+Page+the+pathway+guest+house+whitby&amp;fb=1&amp;gl=uk&amp;hq=live+Place+Page+the+pathway+guest+house+whitby&amp;cid=0,0,2122958004452562429&amp;hnear=&amp;t=h&amp;ll=54.490146,-0.616672&amp;spn=0.004362,0.00912&amp;z=16&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="https://maps.google.co.uk/maps?ie=UTF8&amp;q=live+Place+Page+the+pathway+guest+house+whitby&amp;fb=1&amp;gl=uk&amp;hq=live+Place+Page+the+pathway+guest+house+whitby&amp;cid=0,0,2122958004452562429&amp;hnear=&amp;t=h&amp;ll=54.490146,-0.616672&amp;spn=0.004362,0.00912&amp;z=16&amp;iwloc=A&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+
+                                </div>
+                        </div>
+                     </section>
+

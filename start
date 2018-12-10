@@ -1,0 +1,25 @@
+#!/bin/bash -e 
+
+if [[ -a /tmp/puma.pid ]]; then
+  rm /tmp/puma.pid
+fi
+
+if [[ $RAILS_ENV == "production" ]]; then
+  RAILS_ENV=production rake assets:precompile
+  #mkdir -p /usr/share/nginx/html
+  rm -rf /usr/share/nginx/html/*
+  cp -R public/* /usr/share/nginx/html
+  echo "Copied files"
+  cp -R app/assets/images/* /usr/share/nginx/html/assets
+  cp -R app/assets/fonts/* /usr/share/nginx/html/assets
+  cp app/assets/images/slide* /usr/share/nginx/html/assets
+  #find app/assets -type f -exec cp -t /usr/share/nginx/html/assets/ {} + 
+  #echo "Copied app/asset"
+  ls -lrt /usr/share/nginx/html/*/*
+ 
+  mkdir -p /etc/nginx/conf.d
+  cp site.conf /etc/nginx/conf.d/default.conf
+  echo "Copied config"
+fi
+
+rails server -b 0.0.0.0 -P /tmp/puma.pid

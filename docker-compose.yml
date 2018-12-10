@@ -1,0 +1,32 @@
+  version: '3.0'
+
+  volumes:
+    db-data1:
+      external: false
+
+
+  services:
+    db:
+      image: postgres
+      env_file: .env
+      volumes:
+        - db-data1:/var/lib/postgresql/db-data
+
+    app:
+      build: .
+      env_file: .env
+      command: bundle exec puma -C config/puma.rb
+      volumes:
+        - /home/marrax/rails-apps/pathway1:/rails-apps/pathway1
+      ports:
+        - "3000:3000" 
+      depends_on:
+        - db
+#    web:
+#      build:
+#        context: .
+#        dockerfile: Dockerfile.nginx
+#      links:
+#        - app
+#      ports:
+#        - "80:80"
