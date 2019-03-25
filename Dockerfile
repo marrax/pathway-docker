@@ -1,5 +1,5 @@
 
-FROM ruby:2.5.3
+FROM ruby:2.5.5
 
 ADD https://dl.yarnpkg.com/debian/pubkey.gpg /tmp/yarn-pubkey.gpg
 RUN apt-key add /tmp/yarn-pubkey.gpg && rm /tmp/yarn-pubkey.gpg

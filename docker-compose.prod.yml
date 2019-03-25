@@ -14,7 +14,7 @@
       image: postgres
       env_file: .env.prod
       volumes:
-        - db-data1:/var/lib/postgresql/db-data
+        - db-data1:/var/lib/postgresql/db-data-pathway-prod
 
     prod_app:
       build: 
